@@ -1,0 +1,56 @@
+{
+  "name": "APL",
+  "description": "Advanced Project Launcher",
+  "author": "srdesigns",
+  "version": "0.1.0",
+  "private": true,
+  "main": "electron/index.js",
+  "homepage": "./",
+  "dependencies": {
+    "command-exists": "^1.2.2",
+    "electron-updater": "^2.16.1",
+    "express": "^4.16.2",
+    "firebase": "^4.6.2",
+    "polished": "^1.9.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-loading": "^1.0.1",
+    "react-redux": "^5.0.6",
+    "react-scripts": "1.0.17",
+    "redux": "^3.7.2",
+    "request": "^2.83.0",
+    "rimraf": "^2.6.2",
+    "styled-components": "^2.2.3",
+    "unzip": "^0.1.11"
+  },
+  "build": {
+    "appId": "APL.sr.com",
+    "mac": {
+      "icon": "electron/icon.icns"
+    },
+    "win": {
+      "icon": "electron/icon.ico"
+    },
+    "files": [
+      "electron",
+      "build",
+      "node_modules"
+    ]
+  },
+  "scripts": {
+    "start": "PORT=3007 react-scripts start",
+    "build": "react-scripts build",
+    "elec:d": "DEV=true electron .",
+    "elec:p": "electron .",
+    "elec:b": "electron-builder",
+    "ship": "electron-builder -p always",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "electron": "^1.7.9",
+    "electron-builder": "^19.45.4",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.2.0"
+  }
+}
