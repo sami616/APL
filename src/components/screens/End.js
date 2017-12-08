@@ -11,6 +11,10 @@ class End extends Component {
 		app.quit();
 	}
 
+	componentDidMount(){
+		new Notification('Success', { body: 'Project initialized' });
+	}
+
 	render() {
 		return (
 

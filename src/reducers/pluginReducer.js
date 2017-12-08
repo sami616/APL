@@ -27,6 +27,15 @@ const defaults = {
 			downloading: false,
 			downloaded: false,
 			failed: false,
+		},
+		{
+			label: 'Yoast',
+			id: 'yoast',
+			url: 'https://firebasestorage.googleapis.com/v0/b/wp-project-launcher.appspot.com/o/yoast.zip?alt=media&token=b22ae0c5-e37e-4c4f-ae58-494502e4ab0c',
+			checked: false,
+			downloading: false,
+			downloaded: false,
+			failed: false,
 		}
 	]
 }

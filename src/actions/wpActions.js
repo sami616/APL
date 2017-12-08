@@ -2,6 +2,8 @@ const path = window.require('path');
 const fs = window.require('fs');
 const request = window.require('request');
 const unzip = window.require('unzip');
+const Jen = window.require('node-jen');
+const hdl = new Jen(true);
  
 
 export const check = e => {
@@ -41,7 +43,7 @@ export const downloadWP = () => {
   return (dispatch, getState) => {
 
     const { yearPath, wordpressPath } = getState().setup.paths;
-    const { renameConfig, dbPrefix, dbName, dbUser, dbPass, dbHost } = getState().wp
+    const { renameConfig, dbPrefix, dbName, dbUser, dbPass, dbHost, generateAuth } = getState().wp
     const zipPath = path.join(yearPath, 'wp.zip');
 
 
@@ -101,6 +103,13 @@ export const downloadWP = () => {
               result = result.replace('username_here', dbUser);
               result = result.replace('password_here', dbPass);
               result = result.replace('localhost', dbHost);
+
+              if(generateAuth){
+                for(let s=0; s<=8; s++){
+                  result = result.replace('put your unique phrase here', hdl.password(64,64));
+                }
+                
+              }
 
               fs.writeFile(wpConfigPath, result, 'utf8', function (err) {
                 if (err) { return console.log(err) }

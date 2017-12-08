@@ -48,12 +48,12 @@ class Wordpress extends Component {
 
 					<Ul>
 						<Li>
-							<CheckBox id="renameConfig" onClick={(e) => { check(e) }} checked={renameConfig} />
+							<CheckBox id="renameConfig" onClick={e => { check(e) }} checked={renameConfig} />
 							<Label>Rename wp config</Label>
 						</Li>
 
 						<Li>
-							<CheckBox id="generateAuth" checked={generateAuth} />
+							<CheckBox id="generateAuth" onClick={e => { check(e) } } checked={generateAuth} />
 							<Label>Generate auth keys (coming soon)</Label>
 						</Li>
 
