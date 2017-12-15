@@ -54,7 +54,7 @@ class Wordpress extends Component {
 
 						<Li>
 							<CheckBox id="generateAuth" onClick={e => { check(e) } } checked={generateAuth} />
-							<Label>Generate auth keys (coming soon)</Label>
+							<Label>Generate auth keys</Label>
 						</Li>
 
 						<Li>
