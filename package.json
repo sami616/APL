@@ -2,7 +2,7 @@
   "name": "APL",
   "description": "Advanced Project Launcher",
   "author": "srdesigns",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": true,
   "main": "electron/index.js",
   "homepage": "./",
