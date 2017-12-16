@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as wpActions from '../../actions/wpActions';
-import { SectionWrap, Msg, SectionHeader, Button, Input, Loader, Ul, Li, CheckBox, Label, TextLabel, MaxWidth, Icon } from '../UI';
+import { SectionWrap, Msg, SectionHeader, Button, Input, Loader, Ul, Li, CheckBox, SlideIn, Label, TextLabel, MaxWidth, Icon } from '../UI';
 import alert from '../../assets/alert.svg';
 
 class Wordpress extends Component {
@@ -40,55 +40,58 @@ class Wordpress extends Component {
 
 		return (
 
-			<SectionWrap>
+			<SlideIn>
 
-				<MaxWidth>
+				<SectionWrap>
 
-					<SectionHeader>Wordpress</SectionHeader>
+					<MaxWidth>
 
-					<Ul>
-						<Li>
-							<CheckBox id="renameConfig" onClick={e => { check(e) }} checked={renameConfig} />
-							<Label>Rename wp config</Label>
-						</Li>
+						<SectionHeader>Wordpress</SectionHeader>
 
-						<Li>
-							<CheckBox id="generateAuth" onClick={e => { check(e) } } checked={generateAuth} />
-							<Label>Generate auth keys</Label>
-						</Li>
+						<Ul>
+							<Li>
+								<CheckBox id="renameConfig" onClick={e => { check(e) }} checked={renameConfig} />
+								<Label>Rename wp config</Label>
+							</Li>
 
-						<Li>
-							<TextLabel>Prefix</TextLabel>
-							<Input onChange={(e) => { setInputVal(e) }} id="dbPrefix" grey small type="text" placeholder="Database prefix" value={dbPrefix} />
-						</Li>
+							<Li>
+								<CheckBox id="generateAuth" onClick={e => { check(e) } } checked={generateAuth} />
+								<Label>Generate auth keys</Label>
+							</Li>
 
-						<Li>
-							<TextLabel>Name</TextLabel>
-							<Input onChange={(e) => { setInputVal(e) }} id="dbName" grey small type="text" placeholder="Name" value={dbName} />
-						</Li>
+							<Li>
+								<TextLabel>Prefix</TextLabel>
+								<Input onChange={(e) => { setInputVal(e) }} id="dbPrefix" grey small type="text" placeholder="Database prefix" value={dbPrefix} />
+							</Li>
 
-						<Li>
-							<TextLabel>User</TextLabel>
-							<Input onChange={(e) => { setInputVal(e) }} id="dbUser" grey small type="text" placeholder="User" value={dbUser} />
-						</Li>
+							<Li>
+								<TextLabel>Name</TextLabel>
+								<Input onChange={(e) => { setInputVal(e) }} id="dbName" grey small type="text" placeholder="Name" value={dbName} />
+							</Li>
 
-						<Li>
-							<TextLabel>Password</TextLabel>
-							<Input onChange={(e) => { setInputVal(e) }} id="dbPass" grey small type="text" placeholder="Password" value={dbPass} />
-						</Li>
+							<Li>
+								<TextLabel>User</TextLabel>
+								<Input onChange={(e) => { setInputVal(e) }} id="dbUser" grey small type="text" placeholder="User" value={dbUser} />
+							</Li>
 
-						<Li>
-							<TextLabel>Host</TextLabel>
-							<Input onChange={(e) => { setInputVal(e) }} id="dbHost" grey small type="text" placeholder="Host" value={dbHost} />
-						</Li>
+							<Li>
+								<TextLabel>Password</TextLabel>
+								<Input onChange={(e) => { setInputVal(e) }} id="dbPass" grey small type="text" placeholder="Password" value={dbPass} />
+							</Li>
 
-					</Ul>
+							<Li>
+								<TextLabel>Host</TextLabel>
+								<Input onChange={(e) => { setInputVal(e) }} id="dbHost" grey small type="text" placeholder="Host" value={dbHost} />
+							</Li>
 
-					<Button onClick={() => { downloadWP() }} primary>Install</Button>
+						</Ul>
 
-				</MaxWidth>
+						<Button onClick={() => { downloadWP() }} primary>Install</Button>
 
-			</SectionWrap>
+					</MaxWidth>
+
+				</SectionWrap>
+			</SlideIn>
 
 		);
 

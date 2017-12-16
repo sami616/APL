@@ -1,13 +1,38 @@
 import React from 'react';
 import styled from 'styled-components';
 import ReactLoading from 'react-loading';
+import {Transition} from 'react-transition-group'
 import { colors } from '../utils/global';
 import { darken } from 'polished';
 import folder from '../assets/folder.svg';
 import chevron from '../assets/chevron.svg';
 
-// Wrappers
 
+//Anim
+
+export const SlideIn = props => {
+
+    return (
+        <Transition in appear timeout={0}>
+        	{status => (
+				<SlideInTrans status={status}>
+                {props.children}
+                </SlideInTrans>
+            )}
+        </Transition>
+    )
+}
+export const SlideInTrans = styled.div`
+    opacity: 0;
+    transition: all 250ms ease-in-out;
+    transform: translate3d(0, 10px, 0);
+    ${props=>props.status === 'entered' && `
+        opacity: 1;
+        transform: translate3d(0,0,0);
+    `}
+`
+
+// Wrappers
 export const AppWrap = styled.div`
     background: ${colors.background};
     min-width: 750px;

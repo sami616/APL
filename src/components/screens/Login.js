@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import * as loginActions from '../../actions/loginActions';
-import { SectionWrap, Button, Msg, Icon, Loader, MaxWidth, Ul } from '../UI';
+import { SectionWrap, Button, Msg, Icon, Loader, MaxWidth, Ul, SlideIn } from '../UI';
 import githubIcon from '../../assets/github.svg';
 import alert from '../../assets/alert.svg';
+import {Transition} from 'react-transition-group';
 
 let ipcRenderer = window.require('electron').ipcRenderer;
 
@@ -30,23 +31,23 @@ class Login extends Component {
 
 	renderLoginForm = () => {
 		const { authError } = this.props.user;
-
 		return (
-			<Ul>
-				<Auth>
-					{authError && this.renderAuthError()}
-					<Icon margin="0 auto 20px" src={githubIcon} size={60} />
-					<Button onClick={this.props.openAuthWindow} primary>Login with GitHub</Button>
-				</Auth>
-			</Ul>
-		);
-	}
-
-	renderAuthError = () => {
-		return (
-			<Msg margin="0 0 20px 0"><Icon src={alert} size={25} margin="0 10px 0 0" />There was a problem authenticating, please try again</Msg>
+			<SlideIn>
+				<Ul>
+					<Auth>
+						{authError && this.renderAuthError()}
+						<Icon margin="0 auto 20px" src={githubIcon} size={60} />
+						<Button onClick={this.props.openAuthWindow} primary>Login with GitHub</Button>
+					</Auth>
+				</Ul>
+			</SlideIn>
 		)
 	}
+
+	renderAuthError = () => (
+		<Msg margin="0 0 20px 0"><Icon src={alert} size={25} margin="0 10px 0 0" />There was a problem authenticating, please try again</Msg>
+	)
+
 
 	renderUserError = () => {
 		return (
@@ -90,6 +91,7 @@ const mapStateToProps = state => ({
 })
 
 export default connect(mapStateToProps, { ...loginActions })(Login);
+
 
 const Auth = styled.div`
 	padding: 20px;

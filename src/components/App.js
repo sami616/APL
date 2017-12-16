@@ -52,7 +52,6 @@ class App extends Component {
   }
 
 
-
   render() {
     const { section } = this.props.nav;
 

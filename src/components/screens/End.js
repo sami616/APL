@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import { SectionWrap, Msg, SectionHeader, Button, MaxWidth, Flex } from '../UI';
+import { SectionWrap, Msg, SectionHeader, Button, MaxWidth, Flex, SlideIn } from '../UI';
 import killbill from '../../assets/killbill.png';
 const {app} = window.require('electron').remote;
 
@@ -18,22 +18,23 @@ class End extends Component {
 	render() {
 		return (
 
-			<SectionWrap>
+			<SlideIn>
+				<SectionWrap>
 
-				<FlexMaxWidth>
+					<FlexMaxWidth>
 
-					<KillBill src={killbill}/>
-					<SectionHeader>You're all done {this.props.user.name}!</SectionHeader>
-					<Msg>Happy Hacking</Msg>
+						<KillBill src={killbill}/>
+						<SectionHeader>You're all done {this.props.user.name}!</SectionHeader>
+						<Msg>Happy Hacking</Msg>
 
-					<Flex>
-						<EndButton onClick={this.closeApp}>Seeya</EndButton>
-					</Flex>
+						<Flex>
+							<EndButton onClick={this.closeApp}>Seeya</EndButton>
+						</Flex>
 
-				</FlexMaxWidth>
+					</FlexMaxWidth>
 
-			</SectionWrap>
-
+				</SectionWrap>
+			</SlideIn>
 		)
 	}
 

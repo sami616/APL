@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import RepoList from '../RepoList';
 import * as githubActions from '../../actions/githubActions';
-import { DirSelect, Icon, SectionWrap, Msg, Loader, SectionHeader, Select, Button, Input, Ul, Li, CheckBox, Label, TextLabel, MaxWidth } from '../UI';
+import { DirSelect, Icon, SectionWrap, Msg, Loader, SectionHeader, Select, Button, Input, Ul, Li, CheckBox, Label, TextLabel, MaxWidth, SlideIn } from '../UI';
 import alert from '../../assets/alert.svg';
 
 class GitHub extends Component {
@@ -49,7 +49,7 @@ class GitHub extends Component {
 					{building && this.renderBuilding()}
 					{buildError && this.renderBuildErr()}
 					{dataError && <Msg><Icon src={alert} clickable size={25} margin="0 10px 0 0" onClick={getUserData} />Oops something went wrong. Retry?</Msg>}
-					{dataLoaded && !building && <RepoList filter={filter} setInputVal={setInputVal} searchTerm={searchTerm} checkRepo={checkRepo} repos={repos} />}
+					{dataLoaded && !building && <SlideIn><RepoList filter={filter} setInputVal={setInputVal} searchTerm={searchTerm} checkRepo={checkRepo} repos={repos} /></SlideIn>}
 					{dataLoading && <Loader padding="20px" margin="0 auto" size={65} col="#a5a2a2" />}
 
 					{repoSelected && !building &&
@@ -111,6 +111,7 @@ class GitHub extends Component {
 
 				</MaxWidth>
 			</SectionWrap>
+
 
 		);
 

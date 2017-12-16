@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as pluginActions from '../../actions/pluginActions';
-import { SectionWrap, SectionHeader, Button, Ul, MaxWidth } from '../UI';
+import { SectionWrap, SectionHeader, Button, Ul, MaxWidth, SlideIn } from '../UI';
 import PluginRow from './PluginRow';
 
 class Plugin extends Component {
@@ -26,21 +26,23 @@ class Plugin extends Component {
 		const { plugins } = this.props.plugin;
 
 		return (
+			<SlideIn>
 
-			<SectionWrap>
+				<SectionWrap>
 
-				<MaxWidth>
+					<MaxWidth>
 
-					<SectionHeader>Plugins</SectionHeader>
+						<SectionHeader>Plugins</SectionHeader>
 
-					<Ul> {plugins.map(plugin => this.renderRow(plugin))} </Ul>
+						<Ul> {plugins.map(plugin => this.renderRow(plugin))} </Ul>
 
-					{this.renderNext()}
+						{this.renderNext()}
 
-				</MaxWidth>
+					</MaxWidth>
 
-			</SectionWrap>
+				</SectionWrap>
 
+			</SlideIn>
 		)
 	}
 

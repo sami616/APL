@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import * as setupActions from '../../actions/setupActions';
-import { DirSelect, Button, SectionWrap, MaxWidth } from '../UI';
+import { DirSelect, Button, SectionWrap, MaxWidth, SlideIn } from '../UI';
+import {Transition} from 'react-transition-group';
 
 class Setup extends Component {
 
@@ -19,30 +20,30 @@ class Setup extends Component {
     const { keyDown, onTextChange, selectFolder, createFolders } = this.props;
 
     return (
-      <SectionWrap>
-        <MaxWidth>
-          <Welcome>
-            <p>Konnichiwa {displayName}</p>
-            <span>LAUNCH A NEW &lt;PROJECT&#47;&gt; :)</span>
-          </Welcome>
+      <SlideIn>
+        <SectionWrap>
+          <MaxWidth>
+            <Welcome>
+              <p>Konnichiwa {displayName}</p>
+              <span>LAUNCH A NEW &lt;PROJECT&#47;&gt; :)</span>
+            </Welcome>
 
-          {projectPath ? <Path>{projectPath}</Path> : null}
+            {projectPath ? <Path>{projectPath}</Path> : null}
 
-          <DirSelect
-            margin="10px 0 0 0"
-            onKeyDown={keyDown}
-            onChange={onTextChange}
-            value={name}
-            placeholder="Folder name"
-            onClick={selectFolder}
-          />
+            <DirSelect
+              margin="10px 0 0 0"
+              onKeyDown={keyDown}
+              onChange={onTextChange}
+              value={name}
+              placeholder="Folder name"
+              onClick={selectFolder}
+            />
 
-          {validation ? <Button validation={validation} primary onClick={createFolders}>Next</Button> : null}
+            {validation ? <Button validation={validation} primary onClick={createFolders}>Next</Button> : null}
 
-        </MaxWidth>
-
-      </SectionWrap>
-
+          </MaxWidth>
+        </SectionWrap>
+      </SlideIn>
     );
   }
 }
